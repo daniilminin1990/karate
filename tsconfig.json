@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "target": "ES2020",
+    "lib": ["DOM", "DOM.Iterable", "ES2020"],
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "noImplicitAny": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "module": "ESNext",
+    "declaration": true,
+    "sourceMap": false,
+    "outDir": "dist",
+    "moduleResolution": "node", // В большинстве случаев в проектах на TypeScript, особенно в UI-китах, лучше использовать moduleResolution: "node", так как это обеспечивает более широкую совместимость и поддержку. Вполне возможно, что в вашем случае выбран node для лучшей совместимости с различными инструментами сборки, которые ожидают такую схему разрешения модулей.
+    "allowSyntheticDefaultImports": true,
+    "incremental": true,
+    "jsx": "react-jsx", // НЕ React, потому что в полиморфных компонентах ругалось на импорты (react требовал бы импорта React from 'react', а с этой настройкой можно конкретные вещи доставать и ругаться не будет.
+    "strictNullChecks": false
+  },
+  "exclude": [ // ЭТО ЧТОБЫ НЕ РУГАЛОСЬ В DIST папке не index.ts импорты путей в svgs index.ts. Короче чтобы TS не пытался найти типы для SVG файлов в папке dist
+    "src/core/assets/svgs/*.svg"  // Исключаем SVG из проверки типов
+  ]
+}

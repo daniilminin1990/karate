@@ -1,0 +1,2 @@
+import arrowBackOutline from "./arrow-back-outline.svg";
+export {arrowBackOutline}
